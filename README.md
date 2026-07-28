@@ -17,10 +17,6 @@ npx serve .
 3. Under "Build and deployment", choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
 4. Save — the site will be published at `https://<username>.github.io/<repo>/`.
 
-## Image credits
-
-- `assets/images/hero-transition.jpg` (web-optimized crop used as the hero background) — photo by [Dirk Erasmus](https://unsplash.com/@dirkerasmus) on [Unsplash](https://unsplash.com), original at `assets/images/dirk-erasmus-JKz-7hj7z3Q-unsplash.jpg`.
-
 ## Notes
 
 - The "Baixar para iOS/Android" buttons are intentionally non-functional placeholders — the app isn't published on the stores yet. They show a small "em breve" toast on click.
