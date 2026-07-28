@@ -120,10 +120,29 @@ main > section {
   padding: 14px 0;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 .brand-logo {
   height: 38px;
   width: auto;
   display: block;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--foreground);
+}
+
+.brand-name strong {
+  font-weight: 800;
 }
 
 .main-nav {
@@ -621,8 +640,13 @@ main > section {
 }
 
 .final-cta-logo {
-  height: 34px;
+  height: 60px;
+  width: auto;
   margin-bottom: 24px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .final-cta h2 { color: #fff; max-width: 560px; }
