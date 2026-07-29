@@ -9,7 +9,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="#top" class="brand">
-      <img src="assets/images/logo-dot.svg" alt="TRI STATION" class="brand-logo">
-      <span class="brand-name"><strong>TRI</strong>STATION</span>
+      <img src="assets/logo-icon-white.svg" alt="TRI STATION" class="brand-logo">
+      <span class="brand-name">TRI STATION</span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -43,7 +43,7 @@
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Marketplace para triatletas</p>
-        <h1>Compre e venda equipamento de triathlon com quem entende do assunto.</h1>
+        <h1>Compre e venda equipamentos de triathlon com quem entende do assunto.</h1>
         <p class="hero-sub">Bike, corrida, natação e acessórios em um só lugar. </br>
           Publique seu anúncio em minutos ou encontre a peça certa direto com outros atletas.</p>
 
@@ -58,7 +58,11 @@
       </div>
 
       <div class="hero-visual">
-        <img src="assets/images/bike.png" alt="Bicicleta de estrada laranja, anunciada no TRI STATION" class="hero-bike">
+        <div class="hero-slider">
+          <img src="assets/images/bike.png" alt="Bicicleta de estrada laranja, anunciada no TRI STATION" class="hero-slide is-active">
+          <img src="assets/images/shoes.png" alt="Tênis de corrida, anunciado no TRI STATION" class="hero-slide">
+          <img src="assets/images/watch.png" alt="Relógio multiesportivo, anunciado no TRI STATION" class="hero-slide">
+        </div>
       </div>
     </div>
   </section>
@@ -172,42 +176,19 @@
       <div class="split-visual">
         <div class="category-tiles">
           <div class="category-tile">
-            <svg class="category-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="5.5" cy="17.5" r="3.5"/>
-              <circle cx="18.5" cy="17.5" r="3.5"/>
-              <path d="M5.5 17.5 9 9h4l3 4.5"/>
-              <path d="M9 9l1.5-2.5H13"/>
-              <path d="M12 13.5h6.5"/>
-              <path d="M9 9l4.5 4.5"/>
-            </svg>
+            <svg class="category-tile-icon" viewBox="0 -960 960 960" fill="currentColor"><path d="M200-80q-83 0-141.5-58.5T0-280q0-83 58.5-141.5T200-480q83 0 141.5 58.5T400-280q0 83-58.5 141.5T200-80Zm85-115q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm155-5v-200L312-512q-12-11-18-25.5t-6-30.5q0-16 6.5-30.5T312-624l112-112q12-12 27.5-18t32.5-6q17 0 32.5 6t27.5 18l76 76q28 28 64 44t76 16v80q-57 0-108.5-22T560-604l-32-32-96 96 88 92v248h-80Zm123.5-563.5Q540-787 540-820t23.5-56.5Q587-900 620-900t56.5 23.5Q700-853 700-820t-23.5 56.5Q653-740 620-740t-56.5-23.5ZM760-80q-83 0-141.5-58.5T560-280q0-83 58.5-141.5T760-480q83 0 141.5 58.5T960-280q0 83-58.5 141.5T760-80Zm85-115q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Z"/></svg>
             <span>Bike</span>
           </div>
           <div class="category-tile">
-            <svg class="category-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="14.5" cy="4.5" r="1.8" fill="currentColor" stroke="none"/>
-              <path d="M11 8l3-1.5 2.5 3 3.5 1"/>
-              <path d="M14 6.5l-2.5 4-4 1.5"/>
-              <path d="M11.5 12l2 2.5-1 4.5"/>
-              <path d="M13.5 14.5l3-1 2 3.5"/>
-              <path d="M7.5 21l2-4.5"/>
-            </svg>
+            <svg class="category-tile-icon" viewBox="0 -960 960 960" fill="currentColor"><path d="M520-40v-240l-84-80-40 176-276-56 16-80 192 40 64-324-72 28v136h-80v-188l158-68q35-15 51.5-19.5T480-720q21 0 39 11t29 29l40 64q26 42 70.5 69T760-520v80q-66 0-123.5-27.5T540-540l-24 120 84 80v300h-80Zm-36.5-723.5Q460-787 460-820t23.5-56.5Q507-900 540-900t56.5 23.5Q620-853 620-820t-23.5 56.5Q573-740 540-740t-56.5-23.5Z"/></svg>
             <span>Corrida</span>
           </div>
           <div class="category-tile">
-            <svg class="category-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5.5" r="1.6" fill="currentColor" stroke="none"/>
-              <path d="M8 12.5l3-2.5 2 1.5 3.5-3 2 2.5"/>
-              <path d="M2.5 17.5c1.3 1.2 2.6 1.2 3.9 0 1.3-1.2 2.6-1.2 3.9 0 1.3 1.2 2.6 1.2 3.9 0 1.3-1.2 2.6-1.2 3.9 0 1.3 1.2 2.6 1.2 3.9 0"/>
-              <path d="M2.5 21c1.3 1.2 2.6 1.2 3.9 0 1.3-1.2 2.6-1.2 3.9 0 1.3 1.2 2.6 1.2 3.9 0 1.3-1.2 2.6-1.2 3.9 0 1.3 1.2 2.6 1.2 3.9 0"/>
-            </svg>
+            <svg class="category-tile-icon" viewBox="0 -960 960 960" fill="currentColor"><path d="M80-120v-80q38 0 57-20t75-20q56 0 77 20t57 20q36 0 57-20t77-20q56 0 77 20t57 20q36 0 57-20t77-20q56 0 75 20t57 20v80q-59 0-77.5-20T748-160q-36 0-57 20t-77 20q-56 0-77-20t-57-20q-36 0-57 20t-77 20q-56 0-77-20t-57-20q-36 0-54.5 20T80-120Zm0-180v-80q38 0 57-20t75-20q56 0 77.5 20t56.5 20q36 0 57-20t77-20q56 0 77 20t57 20q36 0 57-20t77-20q56 0 75 20t57 20v80q-59 0-77.5-20T748-340q-36 0-55.5 20T614-300q-57 0-77.5-20T480-340q-38 0-56.5 20T346-300q-59 0-78.5-20T212-340q-36 0-54.5 20T80-300Zm196-204 133-133-40-40q-33-33-70-48t-91-15v-100q75 0 124 16.5t96 63.5l256 256q-17 11-33 17.5t-37 6.5q-36 0-57-20t-77-20q-56 0-77 20t-57 20q-21 0-37-6.5T276-504Zm463-306.5q29 29.5 29 70.5 0 42-29 71t-71 29q-42 0-71-29t-29-71q0-41 29-70.5t71-29.5q42 0 71 29.5Z"/></svg>
             <span>Natação</span>
           </div>
           <div class="category-tile">
-            <svg class="category-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="7.5"/>
-              <circle cx="12" cy="12" r="2.6"/>
-              <path d="M12 4.5v2.2M12 17.3v2.2M4.5 12h2.2M17.3 12h2.2"/>
-            </svg>
+            <svg class="category-tile-icon" viewBox="0 -960 960 960" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>
             <span>Acessórios</span>
           </div>
         </div>
@@ -317,9 +298,9 @@
     </div>
   </section>
 
-  <section class="final-cta" id="download">
+  <section class="final-cta section-dark" id="download">
     <div class="container final-cta-inner">
-      <img src="assets/images/logo-dot.svg" alt="TRI STATION" class="final-cta-logo">
+      <img src="assets/logo-white.svg" alt="TRI STATION" class="final-cta-logo">
       <h2>Pronto para organizar seu equipamento de triathlon?</h2>
       <p>Seja avisado assim que o app estiver disponível nas lojas.</p>
       <div class="store-buttons store-buttons-center">
@@ -338,7 +319,10 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="assets/images/logo-dot.svg" alt="TRI STATION" class="brand-logo">
+      <a href="#top" class="brand">
+        <img src="assets/logo-icon.svg" alt="TRI STATION" class="brand-logo">
+        <span class="brand-name">TRI STATION</span>
+      </a>
       <p>Marketplace de equipamentos de triathlon feito por quem vive o esporte.</p>
     </div>
 
