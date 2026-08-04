@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>%APP_NAME%</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background: #FFFFFF;
+    --foreground: #0A1B33;
+    --primary: #0A1B33;
+    --primary-dark: #16305C;
+    --secondary: #00B4E6;
+    --accent: #FF7A00;
+    --accent-dark: #E56D00;
+    --danger: #DC2626;
+    --success: #16A34A;
+    --muted: #F2F4F7;
+    --muted-foreground: #5B6B85;
+    --border: rgba(10, 27, 51, 0.08);
+    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 24px;
+    background-color: var(--muted);
+    font-family: var(--font-body);
+    color: var(--foreground);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--background);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 60px -20px rgba(10, 27, 51, 0.35);
+  }
+
+  .card__header {
+    background: var(--primary);
+  }
+
+  .card__header img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .card__body {
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon svg { width: 28px; height: 28px; }
+
+  .icon--loading { background: #FFF1E5; }
+  .icon--loading svg { color: var(--accent); animation: spin 1s linear infinite; }
+
+  .icon--success { background: #F0FDF4; }
+  .icon--success svg { color: var(--success); }
+
+  .icon--error { background: #FEF2F2; }
+  .icon--error svg { color: var(--danger); }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .icon--loading svg { animation: none; }
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    color: var(--foreground);
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin: 0 0 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  form { text-align: left; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 6px;
+  }
+
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-family: inherit;
+    background: var(--background);
+  }
+
+  input[type="password"]::placeholder { color: var(--muted-foreground); opacity: 0.7; }
+
+  input[type="password"]:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(0, 180, 230, 0.18);
+  }
+
+  .field-error {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--danger);
+    margin: -10px 0 14px 0;
+    display: none;
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card__header">
+      <img src="https://raw.githubusercontent.com/tristation/tristation-single-page/refs/heads/main/assets/images/email-header.png" alt="%APP_NAME%">
+    </div>
+
+    <div class="card__body">
+
+      <!-- Estado: carregando -->
+      <div id="state-loading">
+        <div class="icon icon--loading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 3a9 9 0 1 0 9 9"/>
+          </svg>
+        </div>
+        <h1>Só um instante…</h1>
+        <p>Estamos processando sua solicitação.</p>
+      </div>
+
+      <!-- Estado: verificação de e-mail concluída -->
+      <div id="state-verify-success" class="hidden">
+        <div class="icon icon--success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <h1>E-mail verificado!</h1>
+        <p>Seu endereço foi confirmado com sucesso. Você já pode voltar para o %APP_NAME%.</p>
+        <a class="btn" href="#" id="btn-open-app">Abrir o app</a>
+      </div>
+
+      <!-- Estado: formulário de nova senha -->
+      <div id="state-reset-form" class="hidden">
+        <h1>Crie uma nova senha</h1>
+        <p id="reset-email-label">Defina uma nova senha para sua conta.</p>
+        <form id="form-reset">
+          <label for="new-password">Nova senha</label>
+          <input type="password" id="new-password" minlength="6" required placeholder="Mínimo de 6 caracteres">
+          <div class="field-error" id="reset-error"></div>
+          <button type="submit" class="btn" id="btn-reset-submit">Salvar nova senha</button>
+        </form>
+      </div>
+
+      <!-- Estado: senha redefinida -->
+      <div id="state-reset-success" class="hidden">
+        <div class="icon icon--success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <h1>Senha alterada!</h1>
+        <p>Sua senha foi redefinida com sucesso. Já pode fazer login com a nova senha.</p>
+        <a class="btn" href="#" id="btn-go-login">Ir para o login</a>
+      </div>
+
+      <!-- Estado: e-mail de recuperação de conta (recoverEmail) -->
+      <div id="state-recover-success" class="hidden">
+        <div class="icon icon--success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <h1>Alteração desfeita</h1>
+        <p>O endereço de e-mail da sua conta foi restaurado com sucesso.</p>
+        <a class="btn" href="#" id="btn-go-login-2">Ir para o login</a>
+      </div>
+
+      <!-- Estado: erro -->
+      <div id="state-error" class="hidden">
+        <div class="icon icon--error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </div>
+        <h1 id="error-title">Link inválido ou expirado</h1>
+        <p id="error-message">Esse link já foi usado ou não é mais válido. Solicite um novo e-mail e tente de novo.</p>
+        <a class="btn" href="#" id="btn-back-home">Voltar ao início</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import {
+      getAuth,
+      applyActionCode,
+      verifyPasswordResetCode,
+      confirmPasswordReset,
+      checkActionCode
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    // ---------------------------------------------------------------------
+    // 1. Configuração do seu projeto Firebase
+    //    Substitua pelos valores reais (Console > Configurações do projeto)
+    // ---------------------------------------------------------------------
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "tristation-f0a9d.firebaseapp.com",
+      projectId: "tristation-f0a9d",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // URL para onde os botões de "voltar" devem apontar
+    const APP_URL = "https://tristation.com.br";
+    const LOGIN_URL = "https://tristation.com.br/login";
+
+    // ---------------------------------------------------------------------
+    // 2. Helpers de UI
+    // ---------------------------------------------------------------------
+    const states = [
+      "state-loading",
+      "state-verify-success",
+      "state-reset-form",
+      "state-reset-success",
+      "state-recover-success",
+      "state-error",
+    ];
+
+    function showState(id) {
+      states.forEach((s) => {
+        document.getElementById(s).classList.toggle("hidden", s !== id);
+      });
+    }
+
+    function showError(title, message) {
+      document.getElementById("error-title").textContent = title;
+      document.getElementById("error-message").textContent = message;
+      showState("state-error");
+    }
+
+    document.getElementById("btn-open-app").href = APP_URL;
+    document.getElementById("btn-back-home").href = APP_URL;
+    document.getElementById("btn-go-login").href = LOGIN_URL;
+    document.getElementById("btn-go-login-2").href = LOGIN_URL;
+
+    // ---------------------------------------------------------------------
+    // 3. Lê os parâmetros que o Firebase envia no link do e-mail
+    // ---------------------------------------------------------------------
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const oobCode = params.get("oobCode");
+
+    if (!mode || !oobCode) {
+      showError(
+        "Link incompleto",
+        "Este link não contém as informações necessárias. Verifique se copiou a URL inteira do e-mail."
+      );
+    } else {
+      switch (mode) {
+        case "verifyEmail":
+          handleVerifyEmail();
+          break;
+        case "resetPassword":
+          handleResetPasswordInit();
+          break;
+        case "recoverEmail":
+          handleRecoverEmail();
+          break;
+        default:
+          showError(
+            "Ação não reconhecida",
+            "Não sabemos como processar esse tipo de link."
+          );
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // 4. Verificação de e-mail
+    // ---------------------------------------------------------------------
+    async function handleVerifyEmail() {
+      try {
+        await applyActionCode(auth, oobCode);
+        showState("state-verify-success");
+      } catch (err) {
+        showError(
+          "Não foi possível verificar seu e-mail",
+          friendlyMessage(err)
+        );
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // 5. Redefinição de senha
+    // ---------------------------------------------------------------------
+    async function handleResetPasswordInit() {
+      try {
+        const email = await verifyPasswordResetCode(auth, oobCode);
+        document.getElementById("reset-email-label").textContent =
+          `Defina uma nova senha para ${email}.`;
+        showState("state-reset-form");
+      } catch (err) {
+        showError(
+          "Não foi possível redefinir sua senha",
+          friendlyMessage(err)
+        );
+      }
+    }
+
+    document.getElementById("form-reset").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newPassword = document.getElementById("new-password").value;
+      const errorEl = document.getElementById("reset-error");
+      const submitBtn = document.getElementById("btn-reset-submit");
+
+      errorEl.style.display = "none";
+
+      if (newPassword.length < 6) {
+        errorEl.textContent = "A senha precisa ter pelo menos 6 caracteres.";
+        errorEl.style.display = "block";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Salvando…";
+
+      try {
+        await confirmPasswordReset(auth, oobCode, newPassword);
+        showState("state-reset-success");
+      } catch (err) {
+        errorEl.textContent = friendlyMessage(err);
+        errorEl.style.display = "block";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Salvar nova senha";
+      }
+    });
+
+    // ---------------------------------------------------------------------
+    // 6. Recuperação de conta (usuário desfaz uma troca de e-mail indevida)
+    // ---------------------------------------------------------------------
+    async function handleRecoverEmail() {
+      try {
+        await checkActionCode(auth, oobCode);
+        await applyActionCode(auth, oobCode);
+        showState("state-recover-success");
+      } catch (err) {
+        showError(
+          "Não foi possível concluir a ação",
+          friendlyMessage(err)
+        );
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // 7. Mensagens de erro amigáveis
+    // ---------------------------------------------------------------------
+    function friendlyMessage(err) {
+      const code = err && err.code ? err.code : "";
+      switch (code) {
+        case "auth/expired-action-code":
+          return "Esse link expirou. Solicite um novo e-mail e tente novamente.";
+        case "auth/invalid-action-code":
+          return "Esse link já foi usado ou não é mais válido.";
+        case "auth/user-disabled":
+          return "Essa conta foi desativada. Entre em contato com o suporte.";
+        case "auth/user-not-found":
+          return "Não encontramos uma conta associada a esse link.";
+        case "auth/weak-password":
+          return "Escolha uma senha mais forte.";
+        default:
+          return "Algo deu errado ao processar sua solicitação. Tente novamente em instantes.";
+      }
+    }
+  </script>
+
+</body>
+</html>
