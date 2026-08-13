@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — TRI STATION</title>
+<meta name="description" content="Política de Privacidade do aplicativo TRI STATION: quais dados coletamos, como usamos, com quem compartilhamos e como exercer seus direitos sob a LGPD.">
+<link rel="canonical" href="https://tristation.com.br/privacy/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background:#FFFFFF; --foreground:#0A1B33; --primary:#0A1B33;
+    --primary-dark:#16305C; --secondary:#00B4E6; --accent:#FF7A00;
+    --muted:#F2F4F7; --muted-foreground:#5B6B85; --border:rgba(10,27,51,.10);
+    --radius:16px; --max-width:820px;
+    --font-heading:'Sora',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --font-body:'Sora',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--background);color:var(--foreground);
+    font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--primary-dark);text-decoration:underline;text-underline-offset:2px;}
+  a:hover{color:var(--secondary);}
+  img{max-width:100%;display:block;}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;width:100%;}
+
+  header.site-header{background:var(--primary);color:#fff;padding:16px 0;}
+  header .container{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;}
+  .brand img{height:26px;width:auto;}
+  .brand-name{font-family:var(--font-heading);font-weight:800;letter-spacing:.02em;font-size:1.05rem;}
+  .back-link{color:#fff;font-size:.9rem;opacity:.85;}
+  .back-link:hover{opacity:1;color:#fff;}
+
+  main{padding:40px 0 64px;}
+  .doc-title{font-family:var(--font-heading);font-weight:800;font-size:2rem;line-height:1.2;margin:0 0 6px;}
+  .updated{color:var(--muted-foreground);font-size:.92rem;margin:0 0 8px;}
+  .intro{background:var(--muted);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px 20px;margin:24px 0 8px;}
+  .intro p{margin:0;}
+
+  h2{font-family:var(--font-heading);font-weight:700;font-size:1.3rem;margin:40px 0 10px;
+    padding-top:8px;scroll-margin-top:80px;}
+  h3{font-family:var(--font-heading);font-weight:600;font-size:1.05rem;margin:22px 0 6px;}
+  p{margin:0 0 14px;}
+  ul{margin:0 0 16px;padding-left:22px;}
+  li{margin:0 0 8px;}
+  strong{font-weight:700;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:.94rem;}
+  th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+  th{background:var(--muted);font-family:var(--font-heading);font-weight:600;}
+
+  .toc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;margin:24px 0;}
+  .toc strong{display:block;margin-bottom:8px;font-family:var(--font-heading);}
+  .toc ol{margin:0;padding-left:20px;}
+  .toc li{margin:0 0 4px;}
+  .toc a{text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+
+  .callout{border-left:4px solid var(--accent);background:#FFF7F0;
+    border-radius:8px;padding:14px 18px;margin:18px 0;}
+  .callout p{margin:0;}
+
+  footer.site-footer{background:var(--primary);color:#cdd6e4;padding:28px 0;text-align:center;font-size:.9rem;}
+  footer a{color:#fff;}
+  footer .foot-links{margin-bottom:10px;}
+  footer .foot-links a{margin:0 10px;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">
+      <img src="../assets/logo-icon-white.svg" alt="TRI STATION">
+      <span class="brand-name">TRI STATION</span>
+    </a>
+    <a href="/" class="back-link">&larr; Voltar ao site</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1 class="doc-title">Política de Privacidade</h1>
+    <p class="updated">Última atualização: 13 de agosto de 2026 &middot; Versão 1.0</p>
+
+    <div class="intro">
+      <p>Esta Política de Privacidade descreve como o aplicativo <strong>TRI STATION</strong> coleta,
+      usa, compartilha e protege os seus dados pessoais, em conformidade com a
+      <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 &ndash; LGPD)</strong>. Ao criar uma
+      conta e utilizar o aplicativo, você declara ter lido e compreendido esta política.</p>
+    </div>
+
+    <nav class="toc" aria-label="Índice">
+      <strong>Índice</strong>
+      <ol>
+        <li><a href="#controlador">Quem somos (Controlador)</a></li>
+        <li><a href="#dados">Quais dados coletamos</a></li>
+        <li><a href="#uso">Como e por que usamos seus dados</a></li>
+        <li><a href="#base-legal">Bases legais</a></li>
+        <li><a href="#compartilhamento">Compartilhamento e operadores</a></li>
+        <li><a href="#transferencia">Transferência internacional</a></li>
+        <li><a href="#retencao">Por quanto tempo guardamos</a></li>
+        <li><a href="#seguranca">Segurança</a></li>
+        <li><a href="#direitos">Seus direitos</a></li>
+        <li><a href="#exclusao">Exclusão de conta e dados</a></li>
+        <li><a href="#menores">Menores de idade</a></li>
+        <li><a href="#alteracoes">Alterações desta política</a></li>
+        <li><a href="#contato">Como falar conosco</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="controlador">1. Quem somos (Controlador dos dados)</h2>
+    <p>O TRI STATION é um marketplace para compra e venda de equipamentos de triathlon (bikes, corrida,
+    natação e acessórios) no Brasil. Para os fins da LGPD, o <strong>controlador</strong> dos dados
+    pessoais tratados no aplicativo é o responsável pelo TRI STATION, que pode ser contatado pelo
+    e-mail <a href="mailto:contato@tristation.com.br">contato@tristation.com.br</a>.</p>
+
+    <h2 id="dados">2. Quais dados coletamos</h2>
+    <p>Coletamos apenas os dados necessários para o funcionamento do marketplace. Não vendemos os seus
+    dados pessoais.</p>
+
+    <table>
+      <thead>
+        <tr><th>Categoria</th><th>Dados</th><th>Origem</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cadastro e conta</strong></td>
+          <td>Nome, e-mail e foto de perfil (quando você entra com Google ou Apple), senha
+          (gerenciada com segurança pelo provedor de autenticação, nunca vista por nós) e o
+          identificador único da sua conta.</td>
+          <td>Você / login social</td>
+        </tr>
+        <tr>
+          <td><strong>Contato</strong></td>
+          <td>Número de telefone/WhatsApp, informado para que compradores possam negociar com você.</td>
+          <td>Você</td>
+        </tr>
+        <tr>
+          <td><strong>Localização</strong></td>
+          <td>Cidade e estado; opcionalmente, sua localização aproximada por GPS (quando você autoriza),
+          usada para preencher a localização e ordenar anúncios por proximidade.</td>
+          <td>Você / GPS do aparelho</td>
+        </tr>
+        <tr>
+          <td><strong>Anúncios</strong></td>
+          <td>Título, descrição, categoria, condição, preço, formas de pagamento aceitas, fotos do
+          produto e dados de contato do anúncio.</td>
+          <td>Você</td>
+        </tr>
+        <tr>
+          <td><strong>Fotos e mídia</strong></td>
+          <td>Imagens que você seleciona da galeria ou da câmera para ilustrar anúncios.</td>
+          <td>Você</td>
+        </tr>
+        <tr>
+          <td><strong>Atividade no app</strong></td>
+          <td>Favoritos, curtidas em promoções, denúncias que você envia e histórico de créditos de
+          anúncio.</td>
+          <td>Uso do app</td>
+        </tr>
+        <tr>
+          <td><strong>Compras</strong></td>
+          <td>Registro de compra de créditos para publicar anúncios. O <em>pagamento em si</em> é
+          processado pela App Store (Apple) ou Google Play &ndash; não recebemos nem armazenamos dados
+          de cartão.</td>
+          <td>Loja de apps / RevenueCat</td>
+        </tr>
+        <tr>
+          <td><strong>Notificações</strong></td>
+          <td>Identificador (token) do seu aparelho para envio de notificações push.</td>
+          <td>Aparelho</td>
+        </tr>
+        <tr>
+          <td><strong>Consentimentos</strong></td>
+          <td>Aceite dos Termos de Uso e a sua opção sobre comunicações de marketing.</td>
+          <td>Você</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="uso">3. Como e por que usamos seus dados</h2>
+    <ul>
+      <li>Criar e manter a sua conta e o seu perfil.</li>
+      <li>Publicar seus anúncios e exibi-los a outros usuários, incluindo suas fotos, preço,
+      localização (cidade/estado) e forma de contato.</li>
+      <li>Permitir a busca por proximidade e a filtragem de anúncios.</li>
+      <li>Processar a compra e o consumo de créditos para publicação de anúncios.</li>
+      <li>Enviar notificações sobre seus anúncios (aprovação, expiração), créditos e denúncias.</li>
+      <li>Moderar conteúdo, analisar denúncias e coibir abusos, fraudes ou violações dos Termos de Uso,
+      podendo remover anúncios e bloquear contas.</li>
+      <li>Enviar comunicações de marketing, <strong>somente</strong> se você tiver consentido.</li>
+      <li>Cumprir obrigações legais e responder a autoridades quando exigido.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Conteúdo público:</strong> ao publicar um anúncio, informações como título, descrição,
+      fotos, preço, cidade/estado e a forma de contato escolhida ficam <strong>visíveis a outros
+      usuários</strong> do aplicativo. Não inclua em anúncios dados que você não deseja tornar públicos.</p>
+    </div>
+
+    <h2 id="base-legal">4. Bases legais (LGPD, art. 7º)</h2>
+    <ul>
+      <li><strong>Execução de contrato</strong> &ndash; para fornecer o serviço, sua conta, seus anúncios
+      e suas compras de créditos.</li>
+      <li><strong>Consentimento</strong> &ndash; para acesso à localização por GPS e para comunicações
+      de marketing. Você pode revogar a qualquer momento.</li>
+      <li><strong>Legítimo interesse</strong> &ndash; para segurança, moderação, prevenção a fraudes e
+      melhoria do serviço.</li>
+      <li><strong>Cumprimento de obrigação legal ou regulatória</strong> &ndash; quando aplicável.</li>
+    </ul>
+
+    <h2 id="compartilhamento">5. Compartilhamento e operadores</h2>
+    <p>Não vendemos seus dados. Compartilhamos dados apenas com prestadores de serviço
+    (&ldquo;operadores&rdquo;) que os tratam em nosso nome e sob nossas instruções, e com outros usuários
+    conforme necessário ao funcionamento do marketplace:</p>
+    <ul>
+      <li><strong>Google Firebase</strong> (Google LLC) &ndash; autenticação, banco de dados,
+      armazenamento de imagens, funções em nuvem e envio de notificações push.</li>
+      <li><strong>Login com Google</strong> e <strong>Login com Apple</strong> &ndash; autenticação da
+      sua conta.</li>
+      <li><strong>RevenueCat, Apple App Store e Google Play</strong> &ndash; processamento e validação
+      de compras dentro do aplicativo.</li>
+      <li><strong>Outros usuários</strong> &ndash; recebem as informações públicas dos seus anúncios,
+      conforme descrito acima.</li>
+      <li><strong>Autoridades</strong> &ndash; quando exigido por lei ou ordem judicial.</li>
+    </ul>
+
+    <h2 id="transferencia">6. Transferência internacional</h2>
+    <p>Alguns de nossos operadores (como o Google) processam e armazenam dados em servidores localizados
+    fora do Brasil. Nesses casos, a transferência é feita com base nas garantias e salvaguardas previstas
+    na LGPD e nas políticas de privacidade dos respectivos provedores.</p>
+
+    <h2 id="retencao">7. Por quanto tempo guardamos</h2>
+    <p>Mantemos seus dados enquanto sua conta estiver ativa e pelo tempo necessário às finalidades desta
+    política. Após a exclusão da conta, removemos ou anonimizamos seus dados pessoais, salvo aqueles que
+    precisemos reter para cumprimento de obrigação legal, exercício regular de direitos ou registros de
+    denúncias e moderação (mantidos como histórico de segurança).</p>
+
+    <h2 id="seguranca">8. Segurança</h2>
+    <p>Adotamos medidas técnicas e organizacionais para proteger seus dados, incluindo autenticação
+    segura, criptografia em trânsito e regras de acesso no servidor que limitam quem pode ler ou alterar
+    cada informação. Nenhum sistema é 100% infalível, mas trabalhamos continuamente para proteger seus
+    dados.</p>
+
+    <h2 id="direitos">9. Seus direitos</h2>
+    <p>Nos termos da LGPD, você pode, a qualquer momento:</p>
+    <ul>
+      <li>Confirmar a existência de tratamento e <strong>acessar</strong> seus dados;</li>
+      <li><strong>Corrigir</strong> dados incompletos, inexatos ou desatualizados;</li>
+      <li>Solicitar a <strong>anonimização, bloqueio ou eliminação</strong> de dados desnecessários ou
+      tratados em desconformidade com a lei;</li>
+      <li>Solicitar a <strong>portabilidade</strong> dos dados;</li>
+      <li><strong>Revogar o consentimento</strong> e solicitar a <strong>eliminação</strong> dos dados
+      tratados com base nele;</li>
+      <li>Obter informação sobre com quem compartilhamos seus dados;</li>
+      <li>Opor-se a tratamentos e apresentar reclamação à <strong>ANPD</strong> (Autoridade Nacional de
+      Proteção de Dados).</li>
+    </ul>
+    <p>Para exercer qualquer direito, escreva para
+    <a href="mailto:contato@tristation.com.br">contato@tristation.com.br</a>.</p>
+
+    <h2 id="exclusao">10. Exclusão de conta e dados</h2>
+    <p>Você pode solicitar a exclusão da sua conta e dos dados pessoais associados de duas formas:</p>
+    <ul>
+      <li>No aplicativo, pelas opções da sua conta; ou</li>
+      <li>Enviando um e-mail para <a href="mailto:contato@tristation.com.br">contato@tristation.com.br</a>
+      a partir do endereço cadastrado, com o assunto <em>&ldquo;Excluir minha conta&rdquo;</em>.</li>
+    </ul>
+    <p>Após a confirmação, excluímos seu perfil, seus anúncios e suas fotos, e removemos ou anonimizamos
+    seus dados pessoais, exceto os registros que a lei nos obrigue a manter (por exemplo, para prevenção
+    a fraudes ou histórico de moderação). O processamento da solicitação ocorre em até 30 dias.</p>
+
+    <h2 id="menores">11. Menores de idade</h2>
+    <p>O TRI STATION é destinado a maiores de 18 anos. Não coletamos intencionalmente dados de menores.
+    Caso identifiquemos uma conta de menor de idade, poderemos removê-la.</p>
+
+    <h2 id="alteracoes">12. Alterações desta política</h2>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando houver mudanças relevantes,
+    atualizaremos a data no topo desta página e, quando apropriado, avisaremos no aplicativo. O uso
+    continuado do app após as alterações significa que você concorda com a versão revisada.</p>
+
+    <h2 id="contato">13. Como falar conosco</h2>
+    <p>Dúvidas, solicitações ou reclamações sobre privacidade e dados pessoais:</p>
+    <ul>
+      <li>E-mail: <a href="mailto:contato@tristation.com.br">contato@tristation.com.br</a></li>
+      <li>Site: <a href="https://tristation.com.br/">tristation.com.br</a></li>
+    </ul>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-links">
+      <a href="/">Início</a>
+      <a href="/privacy/">Privacidade</a>
+      <a href="mailto:contato@tristation.com.br">Contato</a>
+    </div>
+    <p>&copy; 2026 TRI STATION. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
