@@ -20,12 +20,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   scroll-padding-top: var(--header-height);
-}
-
-html.js-scrolling {
-  scroll-snap-type: none;
 }
 
 body {
@@ -65,11 +60,7 @@ main > section {
   min-height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
-
-.site-footer { scroll-snap-align: start; }
 
 .section-sub {
   color: var(--muted-foreground);

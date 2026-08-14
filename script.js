@@ -46,17 +46,12 @@
   });
 
   /**
-   * Custom-eased section snapping (desktop wheel only).
-   * CSS scroll-snap stays in place as the fallback for touch/keyboard;
-   * this replaces it for wheel/trackpad input with a controlled,
-   * smoothly-eased animation instead of the browser's native snap jump.
+   * Section geometry helpers — used by the discreet "next section" arrow
+   * for a smoothly-eased click-to-advance jump. Free scrolling otherwise.
    */
-  var mq = window.matchMedia('(min-width: 961px)');
   var sections = [];
   var headerHeight = 0;
-  var currentIndex = 0;
   var animating = false;
-  var cooldownUntil = 0;
 
   function measure() {
     sections = Array.prototype.slice.call(
@@ -68,10 +63,6 @@
 
   function sectionTop(el) {
     return el.offsetTop - headerHeight;
-  }
-
-  function sectionBottom(el) {
-    return el.offsetTop + el.offsetHeight;
   }
 
   function findCurrentIndex() {
@@ -93,9 +84,6 @@
     if (Math.abs(distance) < 1) return;
     var startTime = null;
     animating = true;
-    // native scroll-snap fights a JS-driven animation frame-by-frame
-    // (each intermediate position isn't a snap point) — suspend it for the duration
-    document.documentElement.classList.add('js-scrolling');
 
     function step(now) {
       if (startTime === null) startTime = now;
@@ -106,46 +94,14 @@
         requestAnimationFrame(step);
       } else {
         animating = false;
-        cooldownUntil = performance.now() + 150;
-        document.documentElement.classList.remove('js-scrolling');
       }
     }
     requestAnimationFrame(step);
   }
 
-  function onWheel(e) {
-    if (!mq.matches) return;
-    if (animating || performance.now() < cooldownUntil) {
-      e.preventDefault();
-      return;
-    }
-
-    currentIndex = findCurrentIndex();
-    var sec = sections[currentIndex];
-    if (!sec) return;
-
-    var goingDown = e.deltaY > 0;
-
-    if (goingDown) {
-      var viewportBottom = window.scrollY + window.innerHeight;
-      if (viewportBottom < sectionBottom(sec) - 1) return; // more of this section to reveal natively
-      var next = Math.min(currentIndex + 1, sections.length - 1);
-      if (next === currentIndex) return;
-      e.preventDefault();
-      animateScrollTo(sectionTop(sections[next]), 700);
-    } else {
-      if (window.scrollY > sectionTop(sec) + 1) return; // more of this section above to reveal natively
-      var prev = Math.max(currentIndex - 1, 0);
-      if (prev === currentIndex) return;
-      e.preventDefault();
-      animateScrollTo(sectionTop(sections[prev]), 700);
-    }
-  }
-
   window.addEventListener('load', measure);
   window.addEventListener('resize', measure);
   measure();
-  window.addEventListener('wheel', onWheel, { passive: false });
 
   /**
    * Discreet "next section" arrow — a click-to-advance shortcut for people
